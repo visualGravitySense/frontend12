@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <img src="https://dannb.org/images/blog/2024/03/obsidian-tips-lead.jpg" alt="Obsidian Banner">
+
+<h1>Class Registration</h1>
+<form action="your-server-side-script" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="course">Select Course</label>
+    <select id="course" name="course" required>
+        <option value="">-- Please choose an option --</option>
+        <option value="management_basics">Management Basics</option>
+        <option value="advanced_management">Advanced Management</option>
+        <option value="leadership_skills">Leadership Skills</option>
+    </select>
+
+    <label for="message">Additional Message (optional)</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <button type="submit">Register</button>
+</form>
+
+</body>
+</html>

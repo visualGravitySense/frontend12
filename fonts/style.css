@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Sankofa Display';
+    src: url('/fonts/');
+}
+
+p {
+    font-size: 55px;
+    text-shadow: 5px 5px  #02a3fa, -5px -5px  #f502ed;
+    /* font-family: 'Courier New', Arial, Helvetica, sans-serif; */
+    font-weight: 100;
+    font-variant: small-caps;
+    font-style: italic;
+    font-family: "Sankofa Display", sans-serif;
+
+}
+
+i {
+    color:aqua;
+    font-size: 5em;
+}
+

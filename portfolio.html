@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO Personal Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="text-4xl leading-7 font-semibold">👨‍💼Dmitri Gornakov</h1>
+            <p>🧠CEO & 💡Founder of Bison Wise 🧩EduTech Startup🚀 </p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="container">
+        <h2 class="text-2xl leading-7 font-semibold">👨‍💼About Me</h2>
+        <p class="mt-3 text-gray-600">I am a creative and innovative developer with a strong background in marketing and crossmedia. I excel at crafting unique digital experiences and have a passion for pushing the boundaries of both aesthetics and functionality.</p>
+    </section>
+
+    <section id="experience" class="container">
+        <h2 class="text-2xl leading-7 font-semibold">Experience</h2>
+        <div class="job">
+            <h3 class="text-xl leading-7 font-semibold" class="text-xl leading-7 font-semibold">🧠CEO & 💡Founder - Bison Wise 🧩EduTech</h3>
+            <p class="mt-3 text-gray-600"><em>Jan 2024 - Present</em></p>
+            <p class="mt-3 text-gray-600">Lead the development and launch of EduSaaS, a comprehensive platform for online education that offers a suite of tools for students, educators, and administrators.</p>
+        </div>
+        <div class="job">
+            <h3 class="text-xl leading-7 font-semibold">🧑‍🎨Creative Ad Marketing Designer</h3>
+            <p class="mt-3 text-gray-600"><em>2018 - 2024</em></p>
+            <p class="mt-3 text-gray-600">Over the past six years, I have crafted compelling visual content and innovative marketing strategies for diverse brands. My role involved conceptualizing and executing ad campaigns across various digital and print platforms, focusing on storytelling and brand identity. I collaborated closely with cross-functional teams to ensure cohesive and impactful messaging, consistently driving engagement and achieving client goals.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="text-2xl leading-7 font-semibold">💻Skills</h2>
+        <ul>
+            <li>Leadership & Management</li>
+            <li>Software Development</li>
+            <li>Cloud Computing</li>
+            <li>Product Design</li>
+            <li>Agile Methodologies</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="text-2xl leading-7 font-semibold">💼Projects:</h2>
+        <div class="project">
+            
+            <p class="mt-4 pt-4 text-blue-800 border-t border-dashed">🚀Startup</p>
+            <h3 class="text-xl leading-7 font-semibold">🦬 Bison Wise EduSaaS platform</h3>
+            <br>
+            <div class="banner-container">
+                <img src="https://digodesignerweb-production.up.railway.app/_nuxt/img/hero1.9a2f667.png" alt="Bison Wise Banner" class="banner">
+            </div>
+            <p class="mt-3 text-gray-600">Bison Wise is an innovative platform dedicated to revolutionizing education through cutting-edge technology. We provide engaging, personalized learning experiences that empower students and educators alike. Our mission is to make high-quality education accessible and enjoyable for everyone, using advanced tools and resources to foster a lifelong love of learning.</p>
+            
+        </div>
+
+        <p class="mt-4 pt-4 text-blue-800 border-t border-dashed">🎓Course </p>
+        
+        <div class="project">
+            
+            <h3 class="text-xl leading-7 font-semibold">📚 Management with Obsidian</h3>
+            <br>
+            <div class="banner-container">
+                <img src="https://dannb.org/images/blog/2024/03/obsidian-tips-lead.jpg" alt="Obsidian Banner" class="banner">
+            </div>
+            <p class="mt-3 text-gray-600">🌟 Developed a customer relationship management system for enterprise clients, integrating various business processes into a unified platform.</p>
+            <br>
+            
+            <h4 class="leading-7 font-semibold">🎯Learning Outcomes</h3>
+            <p class="mt-3 text-gray-600">By the end of the course, participants will gain project and team management skills, master Obsidian for personal and professional data organization, and learn to create effective systems for managing and retrieving information.</p>
+            <br>
+            
+        
+        
+        </div>
+
+        <h2 class="text-2xl leading-7 font-semibold">Class Registration</h2><br>
+            <form method="get" >
+
+                
+
+                <label for="name">Full Name</label>
+                <input class="inputForm" type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input class="inputForm" type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number</label>
+                <input class="inputForm" type="tel" id="phone" name="phone" required>
+
+                <label for="course">Select Course</label>
+                <select id="course" name="course" required>
+                    <option value="">-- Please choose an option --</option>
+                    <option value="management_basics">Management Basics</option>
+                    <option value="advanced_management">Advanced Management</option>
+                    <option value="leadership_skills">Leadership Skills</option>
+                </select>
+
+                <label for="message">Additional Message (optional)</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <input notchecked type="checkbox" name="news" id="newsletter-checkbox" style="width: 5%; margin: 0;">
+                    <label for="newsletter-checkbox" style="margin: 0;">
+                        I agree to subscribe to the newsletter.
+                    </label>
+                </div>
+                <br>
+                <button class="formButton" type="submit">Register</button>
+            </form>
+    </section>
+
+    <footer id="contact" class="container">
+        <h2 class="text-2xl leading-7 font-semibold">Contact</h2>
+        <p class="mt-3 text-gray-600 hover:text-purple-800">📧Email: <a href="mailto:dmitri.gornakov@gmail.com">dmitri.gornakov@gmail.com</a></p>
+        <p class="mt-3 text-gray-600 hover:text-purple-800">☎️Phone: <a href="tel:+37258976398">+372 5897 6398</a></p>
+        <div class="flex justify-center pt-4 space-x-2">
+            <a href="https://github.com/visualGravitySense" target="_blank">
+              <svg
+                class="w-6 h-6 text-white-600 hover:text-gray-800 button--github"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                width="32"
+                height="32"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2.247a10 10 0 0 0-3.162 19.487c.5.088.687-.212.687-.475c0-.237-.012-1.025-.012-1.862c-2.513.462-3.163-.613-3.363-1.175a3.636 3.636 0 0 0-1.025-1.413c-.35-.187-.85-.65-.013-.662a2.001 2.001 0 0 1 1.538 1.025a2.137 2.137 0 0 0 2.912.825a2.104 2.104 0 0 1 .638-1.338c-2.225-.25-4.55-1.112-4.55-4.937a3.892 3.892 0 0 1 1.025-2.688a3.594 3.594 0 0 1 .1-2.65s.837-.262 2.75 1.025a9.427 9.427 0 0 1 5 0c1.912-1.3 2.75-1.025 2.75-1.025a3.593 3.593 0 0 1 .1 2.65a3.869 3.869 0 0 1 1.025 2.688c0 3.837-2.338 4.687-4.563 4.937a2.368 2.368 0 0 1 .675 1.85c0 1.338-.012 2.413-.012 2.75c0 .263.187.575.687.475A10.005 10.005 0 0 0 12 2.247z" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/dmitri-gornakov-7a664840/" target="_blank">
+              <svg
+                class="w-6 h-6 text-white-600 hover:text-blue-800 button--linkedin"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                width="32"
+                height="32"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4.98 3.5c0 .92-.75 1.67-1.68 1.67H3.3c-.92 0-1.68-.75-1.68-1.67S2.38 1.83 3.3 1.83c.93 0 1.68.75 1.68 1.67zm.02 4.17H1v14h3.96v-14zm7.92 0H9v14h3.96v-7.64c0-3.64 4.81-3.94 4.81 0v7.64H21v-8.98c0-7.36-8.48-7.11-10.08-3.48V7.67h-.02z" fill="currentColor" />
+              </svg>
+            </a>
+          </div>
+    </footer>
+</body>
+</html>
+

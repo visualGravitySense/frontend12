@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+#title {
+    color: rgb(0, 255, 55);
+}
+
+.heading {
+    color: blue;
+}
+
+h2.heading {
+    color: rgb(225, 255, 0);
+}
+
+h3, h4 {
+    font-size: 5em;
+}
+
+.container div p {
+    background-color: #ff07d6;
+}
+
+.container > p {
+    color: rgb(0, 255, 38);
+}
+
+/* First next sublings */
+div + p {
+    font-style: italic;
+    font-size: 3rem;
+}
+
+/* All next siblings */
+div ~ p {
+    text-align: right;
+    font-size: 2rem;
+}
+
+a {
+    color: lime;
+}
+
+/* 
+a:link new link
+a:visited visited link 
+a:hover hover with cursor
+a:active in moment click
+*/
+
+h1:hover, h2:hover {
+    background-color: #fff;
+}
+
+p:hover {
+    background-color:rgb(21, 255, 0);
+}
+
+.menu {
+    min-height: 100px;
+    background-color: aliceblue;
+}
+
+.menu p {
+    display: none;
+}
+
+.menu:hover p {
+    display: block;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .namebadge  {
+            width: 250px;
+            height: 150px;
+            border: 3px solid black;
+            border-radius: 25px;
+            margin: 5px;
+            padding: 10px;
+        }
+        .namebadge > h2 {
+            color: red;
+        }
+
+        .boss {
+            background-color: goldenrod;
+            color: white;
+        }
+
+        #unique {
+            background-color: aqua ;
+        }
+    </style>
+</head>
+<body>
+    <!-- div*3.namebadge>h2+p -->
+    
+    <!-- <div class="namebadge boss">
+        <span><h2>Random name 1</h2></span>
+        <p>Company Director</p>
+    </div>
+    <div class="namebadge" id="unique">
+        <h2>Name 2</h2>
+        <p>Accountnt</p>
+    </div>
+    <div class="namebadge">
+        <h2>Name 3</h2>
+        <p>Marketer</p>
+    </div> -->
+
+    <form method="get">
+        <fieldset>
+            <legend>Personal Data</legend>
+            <label for="user-name">User name</label>
+        <input list="default-names" type="text" name="user" id="user-name" value="" placeholder="User Name">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password">
+        </fieldset>
+        
+            <div>
+                <input checked type="radio" name="prog-lang" id="" value="html"> HTML
+                <input type="radio" name="prog-lang" id="" value="css"> CSS
+                <input type="radio" name="prog-lang" id="" value="js"> JS
+
+            </div>
+            <input checked type="checkbox" name="news" id=""> Newsletter <br>
+            
+            <select name="cars" id="" multiple size="8">
+                <optgroup label="German Cars">
+                    <option value="bmw">BMW</option>
+                    <option value="rr">RR</option>
+                </optgroup>
+                <optgroup label="American Cars">
+                    <option value="bmw">Corvette</option>
+                    <option value="rr">Ford</option>
+                </optgroup>
+                <optgroup label="American Cars">
+                    <option value="bmw">Corvette</option>
+                    <option value="rr">Ford</option>
+                </optgroup>
+                
+            </select><br>
+        <textarea style="resize: vertical;" cols="10" rows="10" name="message" id=""></textarea>
+        <br>
+
+        <datalist id="default-names">
+            <option value="Roman">Roman</option>
+            <option value="Jack">Jack</option>
+            <option value="Bob">Bob</option>
+        </datalist>
+
+        <input type="date" name="date" min="2024-07-31" max="2024-08-12" id="">
+        <br>
+        <input type="submit" name="" id="" value="ENTER">
+        <input type="hidden" name="">
+    </form>
+
+</body>
+</html>

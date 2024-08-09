@@ -1,0 +1,35 @@
+body {
+    height: 2000px;   
+    background-image: url(https://picsum.photos/1900);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+    /* background-attachment: scroll; */
+    background-attachment: fixed;
+}
+
+h1 {
+    color: red;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: salmon;
+    margin: auto;
+
+    /* border-style: dashed; */
+    /* border: double;
+    border-width: 15px;
+    border-color: #fff; */
+
+    border-top: 25px double #000;
+    border-right: 15px solid #9a0000bb;
+    border-bottom: 10px double #8c00ff;
+    border-left: 35px solid #00979abb;
+
+    border-radius: 10px 50px 100px 250px;
+
+    outline: 20px dashed rgb(0, 255, 187);
+    outline-offset: 15px;
+}
