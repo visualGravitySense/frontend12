@@ -1,0 +1,26 @@
+html, body {
+    background-color: #dddddd;
+}
+
+.container {
+    margin: auto;
+    padding: 0;
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+}
+
+.horisontal {
+    grid-column: span 2;
+}
+
+.vertical {
+    grid-row: span 2;
+}
+
+.large-square {
+    grid-column: span 2;
+    grid-row: span 2;
+}
