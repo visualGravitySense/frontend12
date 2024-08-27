@@ -90,7 +90,6 @@ const books = [
 ];
 
 const thisYear = books
-    .filter(book => book.release === 2023) // фильтруем книги, выпущенные в 2023
     .map(book => book.title); 
 
 console.log(thisYear); 
