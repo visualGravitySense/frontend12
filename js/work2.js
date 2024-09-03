@@ -9,6 +9,14 @@ const sumOfEvens = numsArray
 
 console.log(sumOfEvens); 
 
+// Solution original
+let sum = 0;
+numsArray.forEach(num => {
+    if (num % 2 === 0) { sum+=num;
+
+    }
+})
+console.log(sum);
 
 // Напишите программу которая проанализирует данный массив с объектами
 // и добавит в новый массив только имена тех людей кому 18 и старше
@@ -46,6 +54,15 @@ const names = people
 
 console.log(names); 
 
+//Original soution
+const adults = [];
+people.forEach(person => {
+    if (person.age >= 18) {
+        adults.push(person.name);
+    }
+});
+console.log(adults);
+
 
 
 // напишите программу которая проанализирует данный массив и выведет в консоль самую длинную строку
@@ -56,6 +73,16 @@ const longest = strings
     .reduce((longest, current) => current.length > longest.length ? current : longest, '');
 
 console.log(longest); 
+
+// Original solution
+let long = '';
+strings.forEach(str => {
+    if (str.length > long.length) {
+        long = str;
+    }
+})
+console.log(long);
+
 
 
 // напишите программу которая возьмёт из данного массива наисенования книг которые вышли в этом году
@@ -94,6 +121,15 @@ const thisYear = books
 
 console.log(thisYear); 
 
+// original solution
+const freshBooks = [];
+books.forEach(book => {
+    if (book.release === 2023) {
+        freshBooks.push(book.title);
+    }
+})
+console.log(freshBooks);
+
 
 // Напишите программу которая проанализирует данный массив и найдёт в нем наибольшее число кратное трём
 
@@ -104,6 +140,16 @@ const largest = numbers
     .reduce((max, num) => num > max ? num : max, -Infinity); 
 
 console.log(largest); 
+
+//origina solution
+// Этот код выполняет поиск наибольшего числа в массиве numbers, которое делится на 3 без остатка. 
+let largst = 0;
+numbers.forEach(num => {
+    if (num % 3 === 0 && num > largst) {
+        largst = num;
+    }
+})
+console.log(largst);
 
 // напишите программу которая найдёт самого старшего человека в данном массиве с объектами
 // и сохранит его в переменную oldestPerson
@@ -138,3 +184,19 @@ const oldest = people2
     .reduce((oldest, current) => current.age > oldest.age ? current : oldest, { age: -Infinity });
 
 console.log(oldest); 
+
+// original solution
+
+let oldestPers = {};
+people2.forEach(person => {
+    if (oldestPers.age) {
+        if (person.age > oldestPers.age) {
+            oldestPers = person;
+        }
+    } else {
+        // Инициализируем oldestPers первым человеком
+        oldestPers = person;
+    }
+});
+
+console.log(oldestPers);

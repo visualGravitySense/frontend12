@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Management App</title>
+    <style>
+        /* Добавим немного стилей для лучшего внешнего вида */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .animal-list {
+            margin-top: 20px;
+        }
+
+        .animal-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .animal-item span {
+            display: block;
+        }
+
+        .remove-btn {
+            background-color: #d9534f;
+            margin-left: 10px;
+        }
+
+        .remove-btn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Zoo Management App</h2>
+
+    <div class="animal-list" id="animal-list">
+        <!-- Список животных будет добавляться здесь -->
+    </div>
+
+    <div class="form-group">
+        <label for="animal-name">Animal Name:</label>
+        <input type="text" id="animal-name">
+    </div>
+
+    <div class="form-group">
+        <label for="animal-species">Animal Species:</label>
+        <input type="text" id="animal-species">
+    </div>
+
+    <div class="form-group">
+        <label for="animal-type">Animal Type:</label>
+        <select id="animal-type">
+            <option value="mammal">Mammal</option>
+            <option value="bird">Bird</option>
+            <option value="reptile">Reptile</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="mammal-attr">
+        <label for="fur-color">Fur Color:</label>
+        <input type="text" id="fur-color">
+    </div>
+
+    <div class="form-group" id="bird-attr" style="display: none;">
+        <label for="wing-span">Wing Span (meters):</label>
+        <input type="number" id="wing-span" step="0.1">
+    </div>
+
+    <div class="form-group" id="reptile-attr" style="display: none;">
+        <label for="scale-type">Scale Type:</label>
+        <input type="text" id="scale-type">
+    </div>
+
+    <button onclick="addAnimal()">Add Animal</button>
+
+    <button onclick="feedAnimals()">Feed All Animals</button>
+
+    <button onclick="displayAllAnimals()">Display All Animals</button>
+
+    <div class="form-group">
+        <label for="filter-species">Filter by Species:</label>
+        <input type="text" id="filter-species">
+        <button onclick="getAnimalsBySpecies()">Get Animals by Species</button>
+    </div>
+    
+    <div class="form-group">
+        <label for="remove-animal-name">Remove Animal by Name:</label>
+        <input type="text" id="remove-animal-name">
+        <button onclick="removeAnimalByName()">Remove Animal</button>
+    </div>
+    
+    <button onclick="displayAnimalCount()">Count All Animals</button>
+    
+
+    
+</div>
+
+<script>
+    // JavaScript-код для управления зоопарком
+    class Animal {
+        constructor(name, species) {
+            this._name = name;
+            this._species = species;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get species() {
+            return this._species;
+        }
+
+        set species(value) {
+            this._species = value;
+        }
+    }
+
+    class Mammal extends Animal {
+        constructor(name, species, furColor) {
+            super(name, species);
+            this._furColor = furColor;
+        }
+
+        get furColor() {
+            return this._furColor;
+        }
+
+        set furColor(value) {
+            this._furColor = value;
+        }
+    }
+
+    class Bird extends Animal {
+        constructor(name, species, wingSpan) {
+            super(name, species);
+            this._wingSpan = wingSpan;
+        }
+
+        get wingSpan() {
+            return this._wingSpan;
+        }
+
+        set wingSpan(value) {
+            this._wingSpan = value;
+        }
+    }
+
+    class Reptile extends Animal {
+        constructor(name, species, scaleType) {
+            super(name, species);
+            this._scaleType = scaleType;
+        }
+
+        get scaleType() {
+            return this._scaleType;
+        }
+
+        set scaleType(value) {
+            this._scaleType = value;
+        }
+    }
+
+    class Zoo {
+        constructor() {
+            this._animals = [];
+        }
+
+        addAnimal(animal) {
+            this._animals.push(animal);
+        }
+
+        listAnimals() {
+            const animalListDiv = document.getElementById('animal-list');
+            animalListDiv.innerHTML = ''; // Очистка списка перед перерисовкой
+
+            this._animals.forEach((animal, index) => {
+                const animalDiv = document.createElement('div');
+                animalDiv.className = 'animal-item';
+
+                animalDiv.innerHTML = `
+                    <span><strong>Species:</strong> ${animal.species}</span>
+                    <span><strong>Name:</strong> ${animal.name}</span>
+                `;
+
+                if (animal instanceof Mammal) {
+                    animalDiv.innerHTML += `<span><strong>Fur Color:</strong> ${animal.furColor}</span>`;
+                } else if (animal instanceof Bird) {
+                    animalDiv.innerHTML += `<span><strong>Wing Span:</strong> ${animal.wingSpan} meters</span>`;
+                } else if (animal instanceof Reptile) {
+                    animalDiv.innerHTML += `<span><strong>Scale Type:</strong> ${animal.scaleType}</span>`;
+                }
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'remove-btn';
+                removeButton.onclick = () => this.removeAnimal(animal.name);
+
+                animalDiv.appendChild(removeButton);
+                animalListDiv.appendChild(animalDiv);
+            });
+        }
+
+        removeAnimal(name) {
+            this._animals = this._animals.filter(animal => animal.name !== name);
+            this.listAnimals(); // Перерисовка списка
+        }
+
+        countAnimals() {
+            return this._animals.length;
+        }
+
+        feedAnimals() {
+            alert('All animals have been fed!');
+        }
+    }
+
+    const zoo = new Zoo();
+
+    document.getElementById('animal-type').addEventListener('change', function() {
+        const animalType = this.value;
+        document.getElementById('mammal-attr').style.display = (animalType === 'mammal') ? 'block' : 'none';
+        document.getElementById('bird-attr').style.display = (animalType === 'bird') ? 'block' : 'none';
+        document.getElementById('reptile-attr').style.display = (animalType === 'reptile') ? 'block' : 'none';
+    });
+
+    function addAnimal() {
+        const name = document.getElementById('animal-name').value;
+        const species = document.getElementById('animal-species').value;
+        const type = document.getElementById('animal-type').value;
+
+        let animal;
+
+        if (type === 'mammal') {
+            const furColor = document.getElementById('fur-color').value;
+            animal = new Mammal(name, species, furColor);
+        } else if (type === 'bird') {
+            const wingSpan = parseFloat(document.getElementById('wing-span').value);
+            animal = new Bird(name, species, wingSpan);
+        } else if (type === 'reptile') {
+            const scaleType = document.getElementById('scale-type').value;
+            animal = new Reptile(name, species, scaleType);
+        }
+
+        zoo.addAnimal(animal);
+        zoo.listAnimals();
+    }
+
+    function feedAnimals() {
+        zoo.feedAnimals();
+    }
+
+    // Функция для вывода списка всех животных
+function displayAllAnimals() {
+    zoo.listAnimals();
+}
+
+// Функция для получения животных по виду
+function getAnimalsBySpecies() {
+    const species = document.getElementById('filter-species').value;
+    const animalsBySpecies = zoo.getAnimalsBySpecies(species);
+
+    const animalListDiv = document.getElementById('animal-list');
+    animalListDiv.innerHTML = ''; // Очистка списка перед перерисовкой
+
+    animalsBySpecies.forEach((animal, index) => {
+        const animalDiv = document.createElement('div');
+        animalDiv.className = 'animal-item';
+
+        // Создаем элементы для каждого свойства
+        const speciesSpan = document.createElement('span');
+        speciesSpan.textContent = `Species: ${animal.species}`;
+
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = `Name: ${animal.name}`;
+
+        animalDiv.appendChild(speciesSpan);
+        animalDiv.appendChild(nameSpan);
+
+        if (animal instanceof Mammal) {
+            const furColorSpan = document.createElement('span');
+            furColorSpan.textContent = `Fur Color: ${animal.furColor}`;
+            animalDiv.appendChild(furColorSpan);
+        } else if (animal instanceof Bird) {
+            const wingSpanSpan = document.createElement('span');
+            wingSpanSpan.textContent = `Wing Span: ${animal.wingSpan} meters`;
+            animalDiv.appendChild(wingSpanSpan);
+        } else if (animal instanceof Reptile) {
+            const scaleTypeSpan = document.createElement('span');
+            scaleTypeSpan.textContent = `Scale Type: ${animal.scaleType}`;
+            animalDiv.appendChild(scaleTypeSpan);
+        }
+
+        animalListDiv.appendChild(animalDiv);
+    });
+}
+
+
+
+// Функция для удаления животного по имени
+    function removeAnimalByName() {
+        const name = document.getElementById('remove-animal-name').value;
+        zoo.removeAnimal(name);
+        zoo.listAnimals(); // Перерисовка списка после удаления
+    }
+
+    // Функция для подсчета общего количества животных
+    function displayAnimalCount() {
+        alert(`Total number of animals in the zoo: ${zoo.countAnimals()}`);
+    }
+
+
+</script>
+
+</body>
+</html>
