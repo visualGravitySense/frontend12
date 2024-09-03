@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        html, body {
+            background-color: black;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: dodgerblue;
+            border: 3px solid white;
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        #title {
+            margin: 10px 0;
+            color: white;
+        }
+
+        .list-item {
+            background-color: white;
+            list-style-type: none;
+            padding: 5px 50px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        button {
+            width: 100px;
+            font-size: 1.5em;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .box {
+            padding: 40px;
+        }
+        .level1 {
+            background-color: tomato;
+        }
+        .level2 {
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container" id="first">
+        <h1 id="title" name="title">
+            Favourite food types
+        </h1>
+        <ul>
+            <li class="list-item"><span>Fast</span> food</li>
+            <li class="list-item">Thai food</li>
+            <li class="list-item">Italian food</li>
+            <li class="list-item">Spanish food</li>
+            <li class="list-item">Indian food</li>
+        </ul>
+    </div>
+    <div class="container">
+        <button onclick="alert('HELLO WORLD')">One</button>
+        <button onclick="alertMe()">Two</button>
+        <button onclick="hideOrReveal()">Three</button>
+    </div> -->
+    <!-- <div class="container">
+        <div class="level1 box">
+            <div class="level2 box">
+                <button class="level3">
+                    Click me
+                </button>
+                <a href="" class="level4">Click me!</a>
+            </div>
+        </div>
+    </div> -->
+    <div class="container">
+        <ul id="cars">
+            <li id="bmw" class="list-item">BMW</li>
+            <li id="honda" class="list-item">Honda</li>
+            <li id="audi" class="list-item">Audi</li>
+            <li id="toyota" class="list-item">Toyota</li>
+            <li id="skoda" class="list-item">Skoda</li>
+        </ul>
+    </div>
+    <input type="text" id="username">
+    <button onclick="logName()">Log username</button>
+    <script src="script.js"></script>
+</body>
+</html>
