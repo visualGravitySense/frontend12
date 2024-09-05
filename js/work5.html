@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Change Background Color</h1>
+        <input type="text" id="colorInput" placeholder="Enter a color name or hex code" />
+        <br>
+        <button onclick="changeColor()">Change Color</button>
+        <p id="errorMessage" class="error"></p>
+    </div>
+
+    <script>
+        function changeColor() {
+            const colorInput = document.getElementById('colorInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Try to set the background color
+            try {
+                document.body.style.backgroundColor = colorInput;
+                errorMessage.textContent = '';
+            } catch (e) {
+                errorMessage.textContent = 'Invalid color. Please enter a valid color name or hex code.';
+            }
+        }
+    </script>
+</body>
+</html>
